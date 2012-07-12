@@ -10,7 +10,7 @@ class Example(wx.Frame):
         
     
 if __name__ == '__main__' : 
-      app = wx.App()
+      app = wx.App(False)
       Example(None, title='Size')
-      app.Mainloop()
+      app.MainLoop()
       

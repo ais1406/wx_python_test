@@ -1,12 +1,14 @@
+# -*- coding: utf-8 -*-
+
 import socket
-import threading
-import time
+import threading  
 
-SIZE = 4
 
-soc = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-soc.bind(('127.0.0.1',5432))
-soc.listen(5)
+SIZE = 4 
+
+soc = socket.socket(socket.AF_INET,socket.SOCK_STREAM)  #소켓 생성
+soc.bind(('127.0.0.1',5432))  # 소켓 바인드 local
+soc.listen(5)  #최대 접속수
 
 class CThread(threading.Thread):
     def __init__(self,c):
@@ -23,7 +25,9 @@ class CThread(threading.Thread):
     def run(self):
         while not self.stopIt:
             msg = self.mrecv()
+            #self.conn.send(msg)
             print 'recieved->  ',msg
+            
 
 def setConn(con1,con2):
     dict={}
